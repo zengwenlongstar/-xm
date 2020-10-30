@@ -61,11 +61,11 @@ $(function() {
                 }
             })
             // 判断用户是否按下了回车键,如果按下就把文本里面的值赋给span,效果从上
-        $('#form_login').onkeyup = function(e) {
-            if (e.keyCode === 13) {
-                $('#btn').click()
-            }
-        }
+            // $('#form_login').onkeyup = function(e) {
+            //     if (e.keyCode === 13) {
+            //         $('#btn').click()
+            //     }
+            // }
     })
 
 })
