@@ -6,7 +6,6 @@ $(function() {
 function getUserInfo() {
     $.ajax({
         url: '/my/userinfo',
-
         success: function(res) {
             if (res.status !== 0) {
                 return layui.layer.msg('请求失败')
