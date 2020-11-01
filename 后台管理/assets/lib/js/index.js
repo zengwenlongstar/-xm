@@ -24,7 +24,7 @@ function renDer(user) {
     $('#welcome').html('欢迎&nbsp;&nbsp;' + use)
     if (user.user_pic !== null) {
         $('.layui-nav-img').attr('src', user.user_pic).show()
-        $('.text-avatar').hide()
+        $('.text-avattar').hide()
     } else {
         $('.layui-nav-img').hide()
         let fistr = use[0].toUpperCase()
