@@ -5,7 +5,7 @@ $(function() {
     form.verify({
         nickname: function(value) {
             if (value.length > 7) {
-                return '昵称长度必须在 1 ~ 6 个字符之间！'
+                return '昵称长度必须在 1 ~ 7 个字符之间！'
             }
         }
     })

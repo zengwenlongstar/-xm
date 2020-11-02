@@ -40,5 +40,6 @@ $('#btn').on('click', function() {
         localStorage.removeItem('token')
         location.href = '/login.html'
         layer.close(index);
+        console.log(index);
     });
 })
