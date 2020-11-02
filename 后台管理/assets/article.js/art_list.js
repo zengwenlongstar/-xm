@@ -1,5 +1,7 @@
 $(function() {
-
+    var layer = layui.layar
+    var form = layui.form
+    var laypage = layui.laypage
     var q = {
         pagenum: 1, // 页码值，默认请求第一页的数据
         pagesize: 2, // 每页显示几条数据，默认每页显示2条
@@ -33,7 +35,7 @@ $(function() {
             url: '/my/article/list',
             data: q,
             success: function(res) {
-                console.log(res);
+
                 if (res.status !== 0) {
                     return layer.msg('获取文章列表失败！')
                 }
@@ -46,7 +48,45 @@ $(function() {
                 });
                 $('tbody').html(htmlStr)
                     // 调用渲染分页的方法
+                renderPage(res.total)
             }
+        })
+    }
+
+    function initCate() {
+        $.ajax({
+            url: '/my/article/cates',
+            success: function(res) {
+                if (res.status !== 0) {
+                    return layer.msg('获取文章列表失败');
+                }
+                var htm = template('tpl-cate', res)
+
+                $('[name=cate_id]').html(htm)
+                form.render()
+            }
+
+        })
+    }
+    initCate()
+
+    $('#form-search').on('submit', function(e) {
+
+        e.preventDefault()
+        let cate_id = $('[name=cate_id]').val()
+        let state = $('[name=state]').val()
+        q.cate_id = cate_id
+        q.state = state
+        initTable()
+    })
+
+
+    function renderPage(total) {
+        laypage.render({
+            elem: 'pageBox',
+            count: total,
+            limit: q.pagesize,
+            curr: q.pagenum
         })
     }
 })

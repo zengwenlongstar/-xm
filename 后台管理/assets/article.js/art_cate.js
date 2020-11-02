@@ -73,6 +73,7 @@ $(function() {
             url: '/my/article/updatecate',
             data: $(this).serialize(),
             success: function(res) {
+                console.log(res);
                 if (res.status !== 0) {
                     return layer.msg('编辑文章列表失败')
                 }
