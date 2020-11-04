@@ -90,10 +90,15 @@ $(function() {
                 }
                 layer.msg('发布文章成功！');
                 location.href = './art_list.html';
-                window.parent.document.querySelector('[href="/article/art_list.html"]').click()
+
             }
         });
     }
+    var art_state = '已发布'
+        // 为存为草稿按钮，绑定点击事件处理函数
+    $('#btnSave2').on('click', function() {
+        art_state = '草稿'
+    })
 
     // 文章编辑
     // console.log(location.search); // ?Id=28476
